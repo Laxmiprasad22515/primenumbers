@@ -1,33 +1,23 @@
-import java.util.Scanner;
-
 public class primenumbers {
-
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        int num = 7; // You can change this number to test other values
+        boolean isPrime = true;
 
-        // Get user input for the upper limit
-        System.out.print("Enter the upper limit to find prime numbers: ");
-        int limit = scanner.nextInt();
-
-        // Loop through all numbers from 2 to limit
-        for (int num = 2; num <= limit; num++) {
-            boolean isPrime = true;
-
-            // Check if the number is divisible by any number less than itself
-            for (int i = 2; i <= Math.sqrt(num); i++) {
-                if (num % i == 0) {
-                    isPrime = false;
-                    break;
-                }
-            }
-
-            // If the number is prime, print it
-            if (isPrime) {
-                System.out.print(num + " ");
+        // Check if the number is divisible by any number other than 1 and itself
+        for (int i = 2; i <= num / 2; i++) {
+            if (num % i == 0) {
+                isPrime = false;
+                break;
             }
         }
 
-        scanner.close(); // Close the scanner object
+        // Output the result
+        if (isPrime && num > 1) {
+            System.out.println(num + " is a prime number.");
+        } else {
+            System.out.println(num + " is not a prime number.");
+        }
     }
 }
+
 
